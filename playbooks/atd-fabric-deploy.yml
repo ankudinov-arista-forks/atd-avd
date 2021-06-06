@@ -16,9 +16,9 @@
         name: arista.avd.build_output_folders
 
     - name: generate intended variables
-      # Available tags are: build / debug
+      tags: [build, generate]
       import_role:
-        name: arista.avd.eos_l3ls_evpn
+        name: arista.avd.eos_designs
 
     - name: generate device intended config and documentation
       tags: [build, generate]
@@ -34,6 +34,7 @@
     - arista.cvp
   tasks:
     - name: provision CVP with AVD configuration
+      tags: [deploy]
       import_role:
         name: arista.avd.eos_config_deploy_cvp
       vars:
